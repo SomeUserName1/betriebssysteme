@@ -102,6 +102,6 @@ Requirements:
     ```  
     - edit /etc/default/grub to print early boot messages to vga  
     ```
-    echo 'GRUB_CMDLINE_LINUX="earlyprink=vga"' | sudo tee -a /etc/default/grub && sudo update-grub
+    echo 'GRUB_CMDLINE_LINUX="earlyprink=vga"' | sudo tee -a /etc/default/grub && sudo grub-mkconfig -o /boot/grub/grub.cfg
     ```  
 
