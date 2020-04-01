@@ -95,7 +95,7 @@ Requirements:
     - copy and gunzip the config of the current kernel for the sake of simplicity `cp /proc/config.gz . && gunzip config.gz && mv config .config`  
     - configure the new features using `make oldconfig` (or `make localmodconfig`)  
     - compile using `make -j4 all`  
-    - install the kernel `su -c "make modules_install install"`
+    - install the kernel `su -c "make modules_install install"`. Note that this is not the complete setup of the kernel and that the concrete instructions are distro specific. Instructions for Arch Linux can be found [on the arch linux wiki](https://wiki.archlinux.org/index.php/Kernel/Traditional_compilation#Installation).  
     - Safe the current dmesg logs to files to check if new errors occur when booting the new kernel    
     ```
     dmesg -t > dmesg_current
@@ -110,6 +110,7 @@ Requirements:
     ```
     echo 'GRUB_CMDLINE_LINUX="earlyprink=vga"' | sudo tee -a /etc/default/grub && sudo grub-mkconfig -o /boot/grub/grub.cfg
     ```  
+    - add a boot entry to grub using `sudo grub-mkconfig -o /boot/grub/grub.cfg`  
     - In case you're using the broadcom-wl driver or it's dkms equivalent you need to follow the instructions at the bottom of this document in order to get your WiFi adapter up and working after the reboot  
     - reboot  
     - check with the command above if dmesg shows additional errors  
