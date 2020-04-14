@@ -1,0 +1,47 @@
+Static Code Analysis of C++ in LLVM:
+https://pdfs.semanticscholar.org/55c8/a6fb28edea5640a3310d3c11b4f5d85c41c6.pdf
+
+Tutorial on clang code analyzer:
+https://wiki.documentfoundation.org/Development/Clang_Code_Analysis
+
+Another more comprehensive one:
+https://github.com/ingve/awesome-clang
+
+Setup:
+http://clang.llvm.org/docs/HowToSetupToolingForLLVM.html
+
+
+clang-tidy -> format + linting + clang static analyzer
+LLBMC -> Bounded Model Checker
+Phasar -> DataFlowSanitizer
+
+scan-build (clang analyzer) -> core, c++, dead code, nullability, security, unix
+https://clang-analyzer.llvm.org/available_checks.html#default_checkers
+Clang-Check ->
+
+http://compiler-rt.llvm.org/:
+ -Wthread-safety -fsanitize=address, ASAN_OPTIONS=check_initialization_order=1,  ASAN_OPTIONS=detect_leaks=1, -fsanitize=thread, -fsanitize=memory, fsanitize=undefined (...), -fsanitize=cfi
+
+
+
+Scheme llvm compiler: 
+http://llvm.org/ProjectsWithLLVM/#scheme
+
+Auto parallelization:
+http://cuda.dcc.ufmg.br/dawn/
+
+high level optimization:
+https://polly.llvm.org/
+
+theorem prover:
+klee.llvm.org
+
+SAFE Code:
+http://safecode.cs.illinois.edu/
+
+OMP + OpenCL:
+http://openmp.llvm.org/
+http://libclc.llvm.org/
+
+better linker:
+http://lld.llvm.org/
