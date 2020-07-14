@@ -16,7 +16,7 @@ Geprüft wurden RWTH, TUM, KIT, ETH, EPFL, UCL
 4. Info on previous knowledge of students is located in extra/besuchte\_kurse  
 5. Altklausur from 2012 in extra/altklausuren  
 6. Added ideas for exercise 1 & 2
-7. Marked topics I considered as too broad due to time reasons with ??
+7. Marked topics I considered as too broad due to time limitations with ??
 
 
 ## Einführung, Übersicht  [[Vorlesung 1]]
