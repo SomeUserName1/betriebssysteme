@@ -1,0 +1,168 @@
+/**
+ * @author Fabian Klopfer
+ * @author Jannik Bamberger
+ * @credits 30
+ */
+
+diff --git a/bin/stty/cchar.c b/bin/stty/cchar.c
+index ad88c76..fc7bc83 100644
+--- a/bin/stty/cchar.c
++++ b/bin/stty/cchar.c
+@@ -63,6 +63,7 @@ const struct cchar cchars1[] = {
+ 	{ "eol",	VEOL,		CEOL },
+ 	{ "eol2",	VEOL2,		CEOL },
+ 	{ "erase",	VERASE,		CERASE },
++	{ "worderase",	VWORDERASE,	CWORDERASE },
+ 	{ "intr",	VINTR,		CINTR },
+ 	{ "kill",	VKILL,		CKILL },
+ 	{ "lnext",	VLNEXT,		CLNEXT },
+diff --git a/lib/libedit/tty.h b/lib/libedit/tty.h
+index 7bdb0b2..ead0010 100644
+--- a/lib/libedit/tty.h
++++ b/lib/libedit/tty.h
+@@ -172,6 +172,9 @@
+ #ifndef CERASE
+ # define CERASE		0177	/* ^? */
+ #endif /* CERASE */
++#ifndef CWORDERASE
++# define CWORDERASE	CONTROL('l')
++#endif /* CWORDERASE */
+ #ifndef CKILL
+ # define CKILL		CONTROL('u')
+ #endif /* CKILL */
+diff --git a/minix/drivers/tty/tty/tty.c b/minix/drivers/tty/tty/tty.c
+index 841035a..4b0cd38 100644
+--- a/minix/drivers/tty/tty/tty.c
++++ b/minix/drivers/tty/tty/tty.c
+@@ -109,6 +109,7 @@ static struct termios termios_defaults = {
+ 	[VEOF] = CEOF,
+ 	[VEOL] = CEOL,
+ 	[VERASE] = CERASE,
++	[VWORDERASE] = CWORDERASE,
+ 	[VINTR] = CINTR,
+ 	[VKILL] = CKILL,
+ 	[VMIN] = CMIN,
+@@ -1011,6 +1012,56 @@ register tty_t *tp;		/* pointer to terminal to read from */
+   }
+ }
+ 
++
++/*
++ del_word() 
+Dokumentation könnte ausführlicher sein ;-)
++*/
++
++
++void del_word(tty_t *tp)
++{
++/* remove last word*/
++	u16_t *head;
++	int len;
++	int ch;
++	int wordSeen = 0; // delete ws at the end of the line
++
++	while (1) {
++		if (tp->tty_incount == 0)
++			break;	// queue empty
++		head = tp->tty_inhead;	// get last item in queue
++		if (head == tp->tty_inbuf)
++			head = bufend(tp->tty_inbuf);	// go back to last place if at begin of tty_inbuf
++			head--; // one char back
++		if (*head & IN_EOT) //can't del after line break
++			break;
+    // Warum ~IN_LEN? Dürfte unnötig sein.
++		ch = *head & IN_CHAR & ~IN_LEN; // get char
++		//check if space or tab
++		if (ch == ' ' || ch == '\t') {
++			if (wordSeen == 1) //if not at end of line stop deleting
++				break;
++		} else {
++			wordSeen = 1; // word char, set flag
++		}
++			/* repaint/update terminal, taken from back_over()*/
++		if (tp->tty_reprint)
++			reprint(tp);
++		tp->tty_inhead = head;
++		tp->tty_incount--;
++
++		if (tp->tty_termios.c_lflag & ECHOE) {
++			len = (*head & IN_LEN) >> IN_LSHIFT;
++			while (len > 0) {
++				rawecho(tp, '\b');
++				rawecho(tp, ' ');
++				rawecho(tp, '\b');
++				len--;
++			}
++		}
++	}
++}
++
++
+ /*===========================================================================*
+  *				in_process				     *
+  *===========================================================================*/
+@@ -1081,6 +1132,15 @@ int count;			/* number of input characters */
+ 			continue;
+ 		}
+ 
++		/* Worderase processing (rub out of last word). */
++		if (ch == tp->tty_termios.c_cc[VWORDERASE]) {
++			(void) del_word(tp);
++			if (!(tp->tty_termios.c_lflag & ECHOE)) {
++				(void) tty_echo(tp, ch);
++			}
++			continue;
++		}
++
+ 		/* Kill processing (remove current line). */
+ 		if (ch == tp->tty_termios.c_cc[VKILL]) {
+ 			while (back_over(tp)) {}
+diff --git a/minix/kernel/main.c b/minix/kernel/main.c
+index a5b4236..a85a485 100644
+--- a/minix/kernel/main.c
++++ b/minix/kernel/main.c
+@@ -337,6 +337,7 @@ static void announce(void)
+       "Copyright 2014, Vrije Universiteit, Amsterdam, The Netherlands\n",
+       OS_RELEASE);
+   printf("MINIX is open source software, see http://www.minix3.org\n");
++  printf("Fabian Klopfer and Jannik Bamberger\n\n");
+ }
+ 
+ /*===========================================================================*
+diff --git a/sys/sys/termios.h b/sys/sys/termios.h
+index d1e6d79..a18ab8f 100644
+--- a/sys/sys/termios.h
++++ b/sys/sys/termios.h
+@@ -76,7 +76,8 @@
+ #define VSTATUS		18	/* ICANON */
+ /*			19	   spare 2 */
+ #endif
+-#define	NCCS		20
++#define	VWORDERASE	20	/* ICANON */
++#define	NCCS		21
+ 
+ #define _POSIX_VDISABLE	__CAST(unsigned char, '\377')
+ 
+diff --git a/sys/sys/ttydefaults.h b/sys/sys/ttydefaults.h
+index 42c6758..910eef6 100644
+--- a/sys/sys/ttydefaults.h
++++ b/sys/sys/ttydefaults.h
+@@ -63,8 +63,10 @@
+ #define	CEOL		((unsigned char)'\377')	/* XXX avoid _POSIX_VDISABLE */
+ #if defined(__minix)
+ #define	CERASE		CTRL('h')
++#define CWORDERASE	CTRL('l')
+ #else
+ #define	CERASE		0177
++#define CWORDERASE	0154
+ #endif /* defined(__minix) */
+ #define	CINTR		CTRL('c')
+ #define	CSTATUS		CTRL('t')
+@@ -99,6 +101,7 @@ const cc_t ttydefchars[NCCS] = {
+ 	[VEOL] = CEOL,
+ 	[VEOL2] = CEOL,
+ 	[VERASE] = CERASE,
++	[VWORDERASE] = CWORDERASE,
+ 	[VWERASE] = CWERASE,
+ 	[VKILL] = CKILL,
+ 	[VREPRINT] = CREPRINT,

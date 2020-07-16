@@ -1,0 +1,108 @@
+/**
+ * Namen?
+ * @credits 0
+ *
+ * War zwar anders gedacht, aber ihr habt euch anscheinend mit dem Code 
+ * auseinandergesetzt und somit das Übungsziel erreicht.
+ */
+diff --git a/minix/kernel/debug.c b/minix/kernel/debug.c
+index 793749e..cbff807 100644
+--- a/minix/kernel/debug.c
++++ b/minix/kernel/debug.c
+@@ -431,7 +431,8 @@ static void printmsg(message *msg, struct proc *src, struct proc *dst,
+ #define KERNELIPC NR_PROCS	/* slot number to use for kernel calls */
+ static int messages[IPCPROCS][IPCPROCS];
+ 
+-#define PRINTSLOTS 20
++/* Set the amount of messages to safe to 100 */
++#define PRINTSLOTS 100
+ static struct {
+ 	int src, dst, messages;
+ } winners[PRINTSLOTS];
+@@ -440,7 +441,8 @@ static int total, goodslots;
+ static void printstats(int ticks)
+ {
+ 	int i;
+-	for(i = 0; i < goodslots; i++) {
++	/* only print every 50th element */
++	for(i = 0; i < goodslots; i+50) {
+ #define name(s) (s == KERNELIPC ? "kernel" : proc_addr(s)->p_name)
+ #define persec(n) (system_hz*(n)/ticks)
+ 		char	*n1 = name(winners[i].src),
+@@ -497,7 +499,11 @@ static void statmsg(message *msg, struct proc *srcp, struct proc *dstp)
+ 	static int lastprint;
+ 
+ 	/* Stat message. */
+-	assert(src);
++	/* because src is only declared but */
++	/* not initialized so it's none sense */
++	/* to check wether it's set; i think srcp */
++	/* should be checked here */
++	assert(srcp); // good point. Pull request?
+ 	proc2slot(srcp, src);
+ 	proc2slot(dstp, dst);
+ 	messages[src][dst]++;
+@@ -546,6 +552,7 @@ void hook_ipc_msgrecv(message *msg, struct proc *src, struct proc *dst)
+ 
+ void hook_ipc_msgsend(message *msg, struct proc *src, struct proc *dst)
+ {
++/* no send messages, only revieved ones */
+ #if DEBUG_DUMPIPC
+ 	printmsg(msg, src, dst, 's', 1);
+ #endif
+diff --git a/minix/kernel/debug.h b/minix/kernel/debug.h
+index a41dd77..05f276c 100644
+--- a/minix/kernel/debug.h
++++ b/minix/kernel/debug.h
+@@ -49,14 +49,17 @@
+ /* If defined, restrict DEBUG_DUMPIPC to particular process names */
+ /* #define DEBUG_DUMPIPC_NAMES		{ "tty", "inet" } */
+ 
++/* Use the DEBUG_IPCSTATS flag and the following functions to print */
++/* as specified without messing up the kernel code too much */
+ /* DEBUG_IPCSTATS collects information on who sends messages to whom. */
+-#define DEBUG_IPCSTATS			0
+-
++#define DEBUG_IPCSTATS			1
++/* We don't want to USE_SYSDEBUG we only want to use the system to print */
++/*
+ #if !USE_SYSDEBUG
+ #undef DEBUG_SERIAL
+ #undef DEBUG_ENABLE_IPC_WARNINGS
+ #endif
+-
++*/
+ #if DEBUG_DUMPIPC || DEBUG_IPCSTATS	/* either of these needs the hook */
+ #define DEBUG_IPC_HOOK			1
+ #endif
+diff --git a/minix/kernel/proc.c b/minix/kernel/proc.c
+index 3dff67c..d2bdf83 100644
+--- a/minix/kernel/proc.c
++++ b/minix/kernel/proc.c
+@@ -1009,7 +1009,7 @@ static int mini_receive(struct proc * caller_ptr,
+ 	    if (sender->p_misc_flags & MF_SIG_DELAY)
+ 		sig_delay_done(sender);
+ 
+-#if DEBUG_IPC_HOOK
++#if DEBUG_IPC_HOOK /*  print here */
+             hook_ipc_msgrecv(&caller_ptr->p_delivermsg, *xpp, caller_ptr);
+ #endif
+ 		
+@@ -1228,7 +1228,7 @@ int try_deliver_senda(struct proc *caller_ptr,
+ 		dst_ptr->p_misc_flags |= MF_DELIVERMSG;
+ 		IPC_STATUS_ADD_CALL(dst_ptr, SENDA);
+ 		RTS_UNSET(dst_ptr, RTS_RECEIVING);
+-#if DEBUG_IPC_HOOK
++#if DEBUG_IPC_HOOK /* print here (async recv) */
+ 		hook_ipc_msgrecv(&dst_ptr->p_delivermsg, caller_ptr, dst_ptr);
+ #endif
+ 	} else if (r == OK) {
+@@ -1406,7 +1406,7 @@ static int try_one(struct proc *src_ptr, struct proc *dst_ptr)
+ 	dst_ptr->p_delivermsg = tabent.msg;
+ 	dst_ptr->p_delivermsg.m_source = src_ptr->p_endpoint;
+ 	dst_ptr->p_misc_flags |= MF_DELIVERMSG;
+-#if DEBUG_IPC_HOOK
++#if DEBUG_IPC_HOOK /* print here (async recv) */
+ 	hook_ipc_msgrecv(&dst_ptr->p_delivermsg, src_ptr, dst_ptr);
+ #endif
+ 

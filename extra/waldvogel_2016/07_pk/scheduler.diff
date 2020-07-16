@@ -1,0 +1,88 @@
+/*
+ * @author Fabian Klopfer
+ * @author Jannik Bamberger
+ * @credits 30
+ */
+
+diff --git a/minix/kernel/proc.c b/minix/kernel/proc.c
+index 3dff67c..1ce5607 100644
+--- a/minix/kernel/proc.c
++++ b/minix/kernel/proc.c
+@@ -1551,10 +1551,36 @@ void enqueue(
+       rp->p_nextready = NULL;		/* mark new end */
+   } 
+   else {					/* add to tail of queue */
+-      rdy_tail[q]->p_nextready = rp;		/* chain tail of queue */	
+-      rdy_tail[q] = rp;				/* set new queue tail */
+-      rp->p_nextready = NULL;		/* mark new end */
+-  }
++//	printf("%s \n", rp->p_name);
++	if(isuserp(rp)) { //rp is user process, schedule accordingly
++		struct proc *tmp = rdy_head[q];
++		struct proc *prev = NULL;
++
++		if(tmp->p_cycles > rp->p_cycles) { //elem belongs in front of head
++			rp->p_nextready = rdy_head[q];
++			rdy_head[q] = rp;
++		} else {
++			while(tmp->p_nextready != NULL && //find location to add rp
++				(tmp->p_cycles <= rp->p_cycles || !isuserp(tmp))) { //elem used less time or is kernel proc
++				prev = tmp;
++				tmp = tmp->p_nextready;
++			}
++
++			if(tmp->p_nextready == NULL || prev == NULL) {//rp is the new last elem
++				rdy_tail[q]->p_nextready = rp;	/* chain tail of queue */	
++				rdy_tail[q] = rp;		/* set new queue tail */
++				rp->p_nextready = NULL;		/* mark new end */
++			} else {			//add after prev, before tmp
++				prev->p_nextready = rp;
++				rp->p_nextready = tmp;
++			}
++		}
++	} else {
++		rdy_tail[q]->p_nextready = rp;		/* chain tail of queue */	
++		rdy_tail[q] = rp;			/* set new queue tail */
++		rp->p_nextready = NULL;			/* mark new end */
++	  }
++	}
+ 
+   if (cpuid == rp->p_cpu) {
+ 	  /*
+@@ -1624,8 +1650,34 @@ static void enqueue_head(struct proc *rp)
+ 	rdy_head[q] = rdy_tail[q] = rp; 	/* create a new queue */
+ 	rp->p_nextready = NULL;			/* mark new end */
+   } else {					/* add to head of queue */
+-	rp->p_nextready = rdy_head[q];		/* chain head of queue */
+-	rdy_head[q] = rp;			/* set new queue head */
++//	printf("%s \n", rp->p_name);
++	if(isuserp(rp)) { //rp is user process, schedule accordingly
++		struct proc *tmp = rdy_head[q];
++		struct proc *prev = NULL;
++
++		if(tmp->p_cycles > rp->p_cycles) { //rp is new first elem
++			rp->p_nextready = rdy_head[q];
++			rdy_head[q] = rp;
++		} else {
++			while(tmp->p_nextready != NULL &&
++				(tmp->p_cycles <= rp->p_cycles || !isuserp(tmp))) {//next elem not user process or has less time used
++				prev = tmp;
++				tmp = tmp->p_nextready;
++			}
++
++			if(tmp->p_nextready == NULL || prev == NULL) {//rp is the new last elem
++				rdy_tail[q]->p_nextready = rp;	/* chain tail of queue */	
++				rdy_tail[q] = rp;		/* set new queue tail */
++				rp->p_nextready = NULL;		/* mark new end */
++			} else {		//add after prev, before tmp
++				prev->p_nextready = rp;
++				rp->p_nextready = tmp;
++			}
++		}
++	} else {
++		rp->p_nextready = rdy_head[q];		/* chain head of queue */
++		rdy_head[q] = rp;			/* set new queue head */
++	}
+   }
+ 
+   /* Make note of when this process was added to queue */

@@ -1,0 +1,30 @@
+false
+pwd
+ls -l
+date +%Y-%m-%d_%H:%M:%S
+date +%Y-%m-%d_%H:%M:%S | wc
+date +%Y-%m-%d_%H:%M:%S | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev | rev
+ls -l >stdout
+rev <stdout
+echo foo >&2 | wc
+ls -l Makefile /nope 2>stderr >stdout
+head stderr stdout
+ls -l Makefile /nope 2>stderr >&2
+cat stderr
+ls -l Makefile /nope >stdout 2>&1
+cat stdout
+ls -l Makefile /nope 2>&1 >stdout | rev
+cat stdout
+ls -l Makefile /nope 3>&1 1>&2 2>&3 | rev >stdout
+cat <stdout
+# comment
+    # comment with text
+ls || wc         # should be an error, but treated as one |
+ls | | wc        # error: empty command
+ls |             # error: empty command
+ | wc            # error: empty command
+
+ls | 1>foo | wc  # fails: command has redir, but no words.
+ls 1>
+ls 1>&
+ls 1>&dada

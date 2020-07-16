@@ -1,0 +1,10 @@
+help
+echo hello world!
+  echo  hello  world
+pwd
+cd schnitzi/flitzi
+pwd
+cd /tmp
+pwd
+cd
+pwd
