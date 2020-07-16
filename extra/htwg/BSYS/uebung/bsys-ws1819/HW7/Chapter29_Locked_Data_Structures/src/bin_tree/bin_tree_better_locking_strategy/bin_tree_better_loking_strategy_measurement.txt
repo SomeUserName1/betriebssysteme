@@ -1,0 +1,15 @@
+./bin_tree 10000 1
+  ellapsed time [us]: 1325878.000000
+  ellapsed time [s]: 1.325878
+
+./bin_tree 10000 2
+  ellapsed time [us]: 1435768.000000
+  ellapsed time [s]: 1.435768
+
+./bin_tree 10000 3
+  ellapsed time [us]: 1741187.000000
+  ellapsed time [s]: 1.741187
+
+./bin_tree 10000 4
+  ellapsed time [us]: 1907791.000000
+  ellapsed time [s]: 1.907791

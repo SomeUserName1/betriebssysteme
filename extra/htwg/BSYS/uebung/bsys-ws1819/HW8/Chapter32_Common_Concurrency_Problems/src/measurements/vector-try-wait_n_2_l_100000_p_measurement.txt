@@ -1,0 +1,301 @@
+./vector-try-wait -n 2 -l 100000 -d -p -t
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.05 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.02 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.05 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.02 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.05 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.02 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.05 seconds
+
+Retries: 0
+Time: 0.02 seconds
+
+Retries: 0
+Time: 0.02 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.02 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.07 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.07 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.08 seconds
+
+Retries: 0
+Time: 0.04 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.07 seconds
+
+Retries: 0
+Time: 0.02 seconds
+
+Retries: 0
+Time: 0.08 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.07 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.08 seconds
+
+Retries: 0
+Time: 0.07 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.07 seconds
+
+Retries: 0
+Time: 0.02 seconds
+
+Retries: 0
+Time: 0.07 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.07 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.02 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.02 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.02 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.02 seconds
+
+Retries: 0
+Time: 0.02 seconds
+
+Retries: 0
+Time: 0.05 seconds
+
+Retries: 0
+Time: 0.02 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.02 seconds
+
+Retries: 0
+Time: 0.02 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.04 seconds
+
+Retries: 0
+Time: 0.05 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.05 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.02 seconds
+
+Retries: 0
+Time: 0.06 seconds
+
+Retries: 0
+Time: 0.02 seconds
+
+Retries: 0
+Time: 0.05 seconds
+
+Retries: 0
+Time: 0.03 seconds
+
+Retries: 0
+Time: 0.02 seconds

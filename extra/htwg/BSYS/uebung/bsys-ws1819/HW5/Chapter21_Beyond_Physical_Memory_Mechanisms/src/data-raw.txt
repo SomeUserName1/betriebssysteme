@@ -1,0 +1,90 @@
+250:
+
+loop 0 in 250.07 ms (bandwidth: 999.72 MB/s)
+loop 3 in 79.54 ms (bandwidth: 3143.12 MB/s)
+loop 6 in 83.49 ms (bandwidth: 2994.48 MB/s)
+loop 8 in 120.16 ms (bandwidth: 2080.54 MB/s)
+loop 11 in 83.66 ms (bandwidth: 2988.36 MB/s)
+loop 14 in 79.07 ms (bandwidth: 3161.91 MB/s)
+loop 17 in 79.12 ms (bandwidth: 3159.80 MB/s)
+loop 19 in 167.59 ms (bandwidth: 1491.71 MB/s)
+loop 21 in 115.30 ms (bandwidth: 2168.35 MB/s)
+loop 23 in 113.87 ms (bandwidth: 2195.46 MB/s)
+loop 25 in 159.26 ms (bandwidth: 1569.80 MB/s)
+loop 27 in 123.39 ms (bandwidth: 2026.13 MB/s)
+loop 30 in 83.08 ms (bandwidth: 3009.01 MB/s)
+
+500:
+
+loop 0 in 488.68 ms (bandwidth: 1023.17 MB/s)
+loop 2 in 239.22 ms (bandwidth: 2090.09 MB/s)
+loop 3 in 275.33 ms (bandwidth: 1815.98 MB/s)
+loop 4 in 279.20 ms (bandwidth: 1790.84 MB/s)
+loop 5 in 243.62 ms (bandwidth: 2052.39 MB/s)
+loop 6 in 264.46 ms (bandwidth: 1890.62 MB/s)
+loop 8 in 158.05 ms (bandwidth: 3163.65 MB/s)
+loop 10 in 167.14 ms (bandwidth: 2991.54 MB/s)
+loop 11 in 203.55 ms (bandwidth: 2456.35 MB/s)
+loop 13 in 158.18 ms (bandwidth: 3161.04 MB/s)
+loop 15 in 158.22 ms (bandwidth: 3160.06 MB/s)
+loop 17 in 190.53 ms (bandwidth: 2624.21 MB/s)
+loop 18 in 252.33 ms (bandwidth: 1981.55 MB/s)
+loop 19 in 279.33 ms (bandwidth: 1790.00 MB/s)
+loop 20 in 302.09 ms (bandwidth: 1655.16 MB/s)
+loop 21 in 289.57 ms (bandwidth: 1726.73 MB/s)
+loop 23 in 158.16 ms (bandwidth: 3161.29 MB/s)
+loop 25 in 179.16 ms (bandwidth: 2790.74 MB/s)
+
+1024:
+
+loop 0 in 1112.46 ms (bandwidth: 920.48 MB/s)
+loop 1 in 534.36 ms (bandwidth: 1916.30 MB/s)
+loop 2 in 502.22 ms (bandwidth: 2038.96 MB/s)
+loop 3 in 388.79 ms (bandwidth: 2633.83 MB/s)
+loop 4 in 359.83 ms (bandwidth: 2845.76 MB/s)
+loop 5 in 357.19 ms (bandwidth: 2866.85 MB/s)
+loop 6 in 385.33 ms (bandwidth: 2657.45 MB/s)
+loop 7 in 378.64 ms (bandwidth: 2704.42 MB/s)
+loop 8 in 510.89 ms (bandwidth: 2004.34 MB/s)
+loop 9 in 531.19 ms (bandwidth: 1927.75 MB/s)
+loop 10 in 419.39 ms (bandwidth: 2441.66 MB/s)
+loop 11 in 383.07 ms (bandwidth: 2673.15 MB/s)
+loop 12 in 353.27 ms (bandwidth: 2898.67 MB/s)
+loop 13 in 384.10 ms (bandwidth: 2666.00 MB/s)
+loop 14 in 371.32 ms (bandwidth: 2757.76 MB/s)
+loop 15 in 441.13 ms (bandwidth: 2321.31 MB/s)
+loop 16 in 551.05 ms (bandwidth: 1858.28 MB/s)
+
+1500:
+
+loop 0 in 1772.29 ms (bandwidth: 846.36 MB/s)
+loop 1 in 479.03 ms (bandwidth: 3131.32 MB/s)
+loop 2 in 496.54 ms (bandwidth: 3020.92 MB/s)
+loop 3 in 492.44 ms (bandwidth: 3046.06 MB/s)
+loop 4 in 536.67 ms (bandwidth: 2795.03 MB/s)
+loop 5 in 761.70 ms (bandwidth: 1969.27 MB/s)
+loop 6 in 543.12 ms (bandwidth: 2761.82 MB/s)
+
+1800:
+
+loop 0 in 2843.65 ms (bandwidth: 632.99 MB/s)
+loop 1 in 743.68 ms (bandwidth: 2420.39 MB/s)
+loop 2 in 752.00 ms (bandwidth: 2393.62 MB/s)
+loop 3 in 867.27 ms (bandwidth: 2075.48 MB/s)
+loop 4 in 774.75 ms (bandwidth: 2323.32 MB/s)
+loop 5 in 618.76 ms (bandwidth: 2909.06 MB/s)
+loop 6 in 614.30 ms (bandwidth: 2930.18 MB/s)
+loop 7 in 662.27 ms (bandwidth: 2717.91 MB/s)
+loop 8 in 913.85 ms (bandwidth: 1969.68 MB/s)
+
+2048:
+
+loop 0 in 4355.00 ms (bandwidth: 470.26 MB/s)
+loop 1 in 30951.67 ms (bandwidth: 66.17 MB/s)
+loop 2 in 30402.74 ms (bandwidth: 67.36 MB/s)
+
+4096:
+
+loop 0 in 24810.25 ms (bandwidth: 165.09 MB/s)
+loop 1 in 61650.97 ms (bandwidth: 66.44 MB/s)
+loop 2 in 61992.28 ms (bandwidth: 66.07 MB/s)

@@ -1,0 +1,29 @@
+./concurrent_counter 1000000 1:
+  counter value: 1000000
+  expected counter value: 1000000
+  ellapsed time [us]: 42049.000000
+  ellapsed time [s]: 0.042049
+
+./concurrent_counter 1000000 2:
+  counter value: 2000000
+  expected counter value: 2000000
+  ellapsed time [us]: 231289.000000
+  ellapsed time [s]: 0.231289
+
+./concurrent_counter 1000000 3:
+  counter value: 3000000
+  expected counter value: 3000000
+  ellapsed time [us]: 575361.000000
+  ellapsed time [s]: 0.575361
+
+./concurrent_counter 1000000 4:
+  counter value: 4000000
+  expected counter value: 4000000
+  ellapsed time [us]: 826895.000000
+  ellapsed time [s]: 0.826895
+
+./concurrent_counter 1000000 5:
+  counter value: 5000000
+  expected counter value: 5000000
+  ellapsed time [us]: 1027713.000000
+  ellapsed time [s]: 1.027713

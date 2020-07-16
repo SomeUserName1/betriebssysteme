@@ -1,0 +1,139 @@
+NUMBER_OF_THREADS = 2
+---------------------
+
+./sloppy_counter 1000000 1 2
+  counter value: 2000000
+  expected counter value: 2000000
+  elapsed time [us]: 543529.000000
+  elapsed time [s]: 0.543529
+
+./sloppy_counter 1000000 2 2
+  counter value: 2000000
+  expected counter value: 2000000
+  elapsed time [us]: 458295.000000
+  elapsed time [s]: 0.458295
+
+./sloppy_counter 1000000 4 2
+  counter value: 2000000
+  expected counter value: 2000000
+  elapsed time [us]: 359142.000000
+  elapsed time [s]: 0.359142
+
+./sloppy_counter 1000000 8 2
+  counter value: 2000000
+  expected counter value: 2000000
+  elapsed time [us]: 388614.000000
+  elapsed time [s]: 0.388614
+
+./sloppy_counter 1000000 16 2
+  counter value: 2000000
+  expected counter value: 2000000
+  elapsed time [us]: 280155.000000
+  elapsed time [s]: 0.280155
+
+./sloppy_counter 1000000 32 2
+  counter value: 2000000
+  expected counter value: 2000000
+  elapsed time [us]: 256023.000000
+  elapsed time [s]: 0.256023
+
+./sloppy_counter 1000000 64 2
+  counter value: 2000000
+  expected counter value: 2000000
+  elapsed time [us]: 208331.000000
+  elapsed time [s]: 0.208331
+
+./sloppy_counter 1000000 128 2
+  counter value: 2000000
+  expected counter value: 2000000
+  elapsed time [us]: 298705.000000
+  elapsed time [s]: 0.298705
+
+./sloppy_counter 1000000 256 2
+  counter value: 1999872
+  expected counter value: 2000000
+  elapsed time [us]: 365046.000000
+  elapsed time [s]: 0.365046
+
+./sloppy_counter 1000000 512 2
+  counter value: 1999872
+  expected counter value: 2000000
+  elapsed time [us]: 210128.000000
+  elapsed time [s]: 0.210128
+
+./sloppy_counter 1000000 1024 2
+  counter value: 1999872
+  expected counter value: 2000000
+  elapsed time [us]: 401011.000000
+  elapsed time [s]: 0.401011
+
+
+
+NUMBER_OF_THREADS = 4
+---------------------
+
+./sloppy_counter 1000000 1 4:
+  counter value: 4000000
+  expected counter value: 4000000
+  elapsed time [us]: 1421238.000000
+  elapsed time [s]: 1.421238
+
+./sloppy_counter 1000000 2 4:
+  counter value: 4000000
+  expected counter value: 4000000
+  elapsed time [us]: 1174883.000000
+  elapsed time [s]: 1.174883
+
+./sloppy_counter 1000000 4 4
+  counter value: 4000000
+  expected counter value: 4000000
+  elapsed time [us]: 904103.000000
+  elapsed time [s]: 0.904103
+
+./sloppy_counter 1000000 8 4
+  counter value: 4000000
+  expected counter value: 4000000
+  elapsed time [us]: 904103.000000
+  elapsed time [s]: 0.904103
+
+./sloppy_counter 1000000 16 4
+  counter value: 4000000
+  expected counter value: 4000000
+  elapsed time [us]: 821736.000000
+  elapsed time [s]: 0.821736
+
+./sloppy_counter 1000000 32 4
+  counter value: 4000000
+  expected counter value: 4000000
+  elapsed time [us]: 780819.000000
+  elapsed time [s]: 0.780819
+
+./sloppy_counter 1000000 64 4
+  counter value: 4000000
+  expected counter value: 4000000
+  elapsed time [us]: 895664.000000
+  elapsed time [s]: 0.895664
+
+./sloppy_counter 1000000 128 4
+  counter value: 4000000
+  expected counter value: 4000000
+  elapsed time [us]: 829097.000000
+  elapsed time [s]: 0.829097
+
+./sloppy_counter 1000000 256 4
+  counter value: 4000000
+  expected counter value: 4000000
+  elapsed time [us]: 732840.000000
+  elapsed time [s]: 0.732840
+
+./sloppy_counter 1000000 512
+  counter value: 3999744
+  expected counter value: 4000000
+  elapsed time [us]: 799448.000000
+  elapsed time [s]: 0.799448
+
+./sloppy_counter 1000000 1024 4
+  counter value: 3999744
+  expected counter value: 4000000
+  elapsed time [us]: 763961.000000
+  elapsed time [s]: 0.763961

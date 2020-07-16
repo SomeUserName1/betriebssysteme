@@ -1,0 +1,31 @@
+./bin_tree 10000 1
+  ellapsed time [us]: 809350.000000
+  ellapsed time [s]: 0.809350
+
+./bin_tree 10000 2
+  ellapsed time [us]: 1206191.000000
+  ellapsed time [s]: 1.206191
+
+./bin_tree 10000 3
+  ellapsed time [us]: 2038663.000000
+  ellapsed time [s]: 2.038663
+
+./bin_tree 10000 4
+  ellapsed time [us]: 2774577.000000
+  ellapsed time [s]: 2.774577
+
+./bin_tree 10000 5
+  ellapsed time [us]: 3364706.000000
+  ellapsed time [s]: 3.364706
+
+./bin_tree 10000 6
+  ellapsed time [us]: 4009989.000000
+  ellapsed time [s]: 4.009989
+
+./bin_tree 10000 7
+  ellapsed time [us]: 5491860.000000
+  ellapsed time [s]: 5.491860
+
+./bin_tree 10000 8
+  ellapsed time [us]: 5645034.000000
+  ellapsed time [s]: 5.645034

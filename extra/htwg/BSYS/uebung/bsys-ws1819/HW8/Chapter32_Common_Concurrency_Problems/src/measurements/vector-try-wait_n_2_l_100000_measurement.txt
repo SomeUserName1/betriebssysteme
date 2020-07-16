@@ -1,0 +1,301 @@
+./vector-try-wait -n 2 -l 100000 -d -t
+
+Retries: 464740
+Time: 0.15 seconds
+
+Retries: 741303
+Time: 0.34 seconds
+
+Retries: 568944
+Time: 0.34 seconds
+
+Retries: 498387
+Time: 0.25 seconds
+
+Retries: 770656
+Time: 0.37 seconds
+
+Retries: 0
+Time: 0.05 seconds
+
+Retries: 329052
+Time: 0.24 seconds
+
+Retries: 694387
+Time: 0.47 seconds
+
+Retries: 481045
+Time: 0.12 seconds
+
+Retries: 1266311
+Time: 0.47 seconds
+
+Retries: 912128
+Time: 0.42 seconds
+
+Retries: 475555
+Time: 0.28 seconds
+
+Retries: 657089
+Time: 0.31 seconds
+
+Retries: 620592
+Time: 0.32 seconds
+
+Retries: 362675
+Time: 0.20 seconds
+
+Retries: 689150
+Time: 0.32 seconds
+
+Retries: 585682
+Time: 0.31 seconds
+
+Retries: 427768
+Time: 0.27 seconds
+
+Retries: 427531
+Time: 0.21 seconds
+
+Retries: 0
+Time: 0.08 seconds
+
+Retries: 639182
+Time: 0.40 seconds
+
+Retries: 0
+Time: 0.09 seconds
+
+Retries: 674999
+Time: 0.42 seconds
+
+Retries: 621439
+Time: 0.37 seconds
+
+Retries: 750408
+Time: 0.33 seconds
+
+Retries: 726703
+Time: 0.37 seconds
+
+Retries: 653243
+Time: 0.32 seconds
+
+Retries: 728755
+Time: 0.38 seconds
+
+Retries: 710229
+Time: 0.32 seconds
+
+Retries: 445762
+Time: 0.17 seconds
+
+Retries: 409032
+Time: 0.31 seconds
+
+Retries: 492795
+Time: 0.31 seconds
+
+Retries: 597828
+Time: 0.42 seconds
+
+Retries: 365348
+Time: 0.30 seconds
+
+Retries: 218967
+Time: 0.18 seconds
+
+Retries: 408186
+Time: 0.23 seconds
+
+Retries: 416450
+Time: 0.26 seconds
+
+Retries: 667269
+Time: 0.33 seconds
+
+Retries: 339318
+Time: 0.21 seconds
+
+Retries: 671562
+Time: 0.36 seconds
+
+Retries: 554672
+Time: 0.30 seconds
+
+Retries: 576892
+Time: 0.31 seconds
+
+Retries: 538585
+Time: 0.38 seconds
+
+Retries: 102938
+Time: 0.11 seconds
+
+Retries: 387564
+Time: 0.32 seconds
+
+Retries: 667649
+Time: 0.47 seconds
+
+Retries: 118927
+Time: 0.11 seconds
+
+Retries: 585922
+Time: 0.32 seconds
+
+Retries: 767488
+Time: 0.31 seconds
+
+Retries: 622876
+Time: 0.35 seconds
+
+Retries: 592472
+Time: 0.32 seconds
+
+Retries: 475592
+Time: 0.31 seconds
+
+Retries: 545669
+Time: 0.29 seconds
+
+Retries: 471776
+Time: 0.30 seconds
+
+Retries: 22943
+Time: 0.08 seconds
+
+Retries: 146748
+Time: 0.19 seconds
+
+Retries: 629024
+Time: 0.23 seconds
+
+Retries: 33492
+Time: 0.09 seconds
+
+Retries: 691849
+Time: 0.42 seconds
+
+Retries: 733168
+Time: 0.45 seconds
+
+Retries: 549435
+Time: 0.30 seconds
+
+Retries: 610498
+Time: 0.32 seconds
+
+Retries: 590854
+Time: 0.31 seconds
+
+Retries: 204113
+Time: 0.16 seconds
+
+Retries: 581003
+Time: 0.30 seconds
+
+Retries: 891376
+Time: 0.43 seconds
+
+Retries: 639024
+Time: 0.39 seconds
+
+Retries: 519649
+Time: 0.38 seconds
+
+Retries: 542752
+Time: 0.40 seconds
+
+Retries: 513353
+Time: 0.30 seconds
+
+Retries: 681752
+Time: 0.32 seconds
+
+Retries: 634749
+Time: 0.30 seconds
+
+Retries: 735844
+Time: 0.37 seconds
+
+Retries: 439837
+Time: 0.24 seconds
+
+Retries: 733517
+Time: 0.36 seconds
+
+Retries: 776286
+Time: 0.33 seconds
+
+Retries: 584630
+Time: 0.46 seconds
+
+Retries: 747890
+Time: 0.42 seconds
+
+Retries: 393248
+Time: 0.14 seconds
+
+Retries: 41416
+Time: 0.08 seconds
+
+Retries: 47269
+Time: 0.05 seconds
+
+Retries: 576919
+Time: 0.36 seconds
+
+Retries: 594391
+Time: 0.20 seconds
+
+Retries: 700259
+Time: 0.31 seconds
+
+Retries: 285232
+Time: 0.12 seconds
+
+Retries: 647319
+Time: 0.39 seconds
+
+Retries: 603900
+Time: 0.37 seconds
+
+Retries: 557049
+Time: 0.29 seconds
+
+Retries: 1481105
+Time: 0.41 seconds
+
+Retries: 0
+Time: 0.09 seconds
+
+Retries: 346497
+Time: 0.19 seconds
+
+Retries: 337425
+Time: 0.12 seconds
+
+Retries: 105684
+Time: 0.12 seconds
+
+Retries: 5299
+Time: 0.09 seconds
+
+Retries: 395096
+Time: 0.17 seconds
+
+Retries: 746050
+Time: 0.35 seconds
+
+Retries: 564014
+Time: 0.30 seconds
+
+Retries: 450091
+Time: 0.26 seconds
+
+Retries: 755917
+Time: 0.34 seconds
+
+Retries: 501384
+Time: 0.29 seconds

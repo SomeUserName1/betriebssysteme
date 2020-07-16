@@ -1,0 +1,31 @@
+./concurrent_list 1000 1
+  elapsed time [us]: 17481.000000
+  elapsed time [s]: 0.017481
+
+./concurrent_list 1000 2
+  elapsed time [us]: 174697.000000
+  elapsed time [s]: 0.174697
+
+./concurrent_list 1000 3
+  elapsed time [us]: 390830.000000
+  elapsed time [s]: 0.390830
+
+./concurrent_list 1000 4
+  elapsed time [us]: 1054222.000000
+  elapsed time [s]: 1.054222
+
+./concurrent_list 1000 5
+  elapsed time [us]: 2410760.000000
+  elapsed time [s]: 2.410760
+
+./concurrent_list 1000 6
+  elapsed time [us]: 4285638.000000
+  elapsed time [s]: 4.285638
+
+./concurrent_list 1000 7
+  elapsed time [us]: 7098953.000000
+  elapsed time [s]: 7.098953
+
+./concurrent_list 1000 8
+  elapsed time [us]: 10989672.000000
+  elapsed time [s]: 10.989672
