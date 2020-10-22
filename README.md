@@ -6,18 +6,8 @@
 - [Harvard 2020](https://read.seas.harvard.edu/cs161/2020/schedule/)  
 - [Harvard Systems Prog. 2019](https://cs61.seas.harvard.edu/site/2019/)  
 - [Tübingen WS '12/'13](https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/symbolisches-rechnen/lehre/regelmaessige-veranstaltungen/betriebssysteme/)  
-Viele europäische Top-Unis nutzen Moodle, ILIAS o.Ä., sodass man ohne Account der jeweiligen Uni keinen Zugriff hat...  
-Geprüft wurden RWTH, TUM, KIT, ETH, EPFL, UCL  
 
-#### Changelist:  
-1. Extended Architektur/Struktur a bit  
-2. Moved Synchronization to Processes & Threads  
-3. Sloppy per unit annotation  
-4. Info on previous knowledge of students is located in extra/besuchte\_kurse  
-5. Altklausur from 2012 in extra/altklausuren  
-6. Added ideas for exercise 1 & 2
-7. Marked topics I considered as too broad due to time limitations with ??
-
+[Linux Advanced Resources](https://linux-kernel-labs.github.io/refs/heads/master/)
 
 ## Einführung, Übersicht  [[Vorlesung 1]]
 ### Einführung  
