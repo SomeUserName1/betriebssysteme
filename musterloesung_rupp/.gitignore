@@ -1,0 +1,16 @@
+
+# LaTeX intermediate files
+
+exercise*.aux
+exercise*.fdb_latexmk
+exercise*.fls
+exercise*.log
+exercise*.nav
+exercise*.out
+exercise*.snm
+exercise*.synctex.gz
+exercise*.toc
+
+# LaTeX outputs
+
+exercise??*.pdf

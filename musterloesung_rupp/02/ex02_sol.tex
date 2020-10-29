@@ -1,0 +1,47 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{minted}
+
+\begin{document}
+
+\section*{Aufgabe 1: Verständnisfragen}
+\begin{enumerate}
+ \item Programmcode ist statisch und gibt an wie ausgeführt werden soll. Ein Prozess ist dynamisch und eine Ausführung des Programmcodes mit best. parametern.
+ \item  Ein Prozesskontrollblock ist eine Datenstruktur, die genutzt wird um Prozesse zu verwalten. Der PCB enthält den Context des Prozesses: Den Code, einen instruction pointer, den stack, den heap, flags und weitere informationen die für das scheduling bennötigt werden
+ \item Ein mode switch ändert die Berechtigung in der ausgeführt wird vom Nutzer zum Kernel. Der Nutzer kann nicht auf Hardware zugreifen während der kernel auf alles zugreift. Ein Prozesswechsel ändert das auszuführende programm und wird auch als Kontextwechsel bezeichnet
+ \item Jeder Prozess hat einen eigenen Kontext, spricht getrennte speicher bereiche. Ein Thread hat einen eigenen stack aber teilt sich den Speicherbereich mit allen anderen Threads des gleichen Prozesses.
+ \item Ja zumindest Kernel Threads. Es gibt aber auch stackless threads
+ \item Benutzerthreads bennötigen keinen mode switch, während sie aber möglicherweise den gesamten Prozess blockieren können
+ \item Sicherheit: Trennung von kernel und user mode. Verhindert attacken, die den Stack nutzen um informationen zu stehlen oder code ausführen wollen.
+\end{enumerate}
+
+\section*{Aufgabe 2: CPU- vs EA-Zeit}
+\[ 1-p^a \]
+% TODO korrigiere 2.2, ist nicht sofort klar was gemeint ist
+\begin{enumerate}
+    \item $\frac{1}{2}^5 = \frac{1}{32}$ 
+    \item $0.99 = 1-p^{61} \Leftrightarrow -0.01 = -p^{61} \Leftrightarrow 0.01^{\frac{1}{61}} = p = 0.9272847$ 
+    \item $20 + 0.4 \cdot 20 = 28$ min pro Prozess. $2 \cdot 28 = 56$min für die sequentielle Ausführung. Parallel ist die Rechenkapazität von 2 Prozessoren $0.6^2 + 2 \cdot (0.6\cdot0.4) + 0.4^2 = 1.2$ bei $40\%$ Auslastung. damit ergibt sich $\frac{2 \cdot 20}{1.2} = 33.3$min.
+\end{enumerate}
+
+\section*{Aufgabe 3: Der fork Befehl}
+\begin{enumerate}
+ \item insgesamt werden 3 Kindprozesse erzeugt.
+\end{enumerate}
+
+\section*{Programmieraufgabe 4: Arrays}
+\begin{enumerate}
+ \item siehe array.c
+ 
+\end{enumerate}
+
+
+\section*{Bonusaufgabe 5}
+% TODO last one is non-trivial
+\begin{enumerate}
+ \item Weniger Speicherverbrauch
+ \item Only explicitly declared functions can block and only at the top level, i.e. no blocking function is callable if not declared.
+ \item spawn and yield $\Rightarrow$ Cooperative
+\end{enumerate}
+
+\end{document}
