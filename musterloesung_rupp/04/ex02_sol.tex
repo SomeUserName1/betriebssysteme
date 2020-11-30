@@ -1,0 +1,68 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{minted}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section*{Exercise 1}
+\begin{enumerate}
+ \item Address Spaces, Paging, Segmentation, Allocation, Compression, Swapping
+ \item The mechanism of using disk space to store and load process memory from RAM that are currently not in use. This solves the problem of more RAM requirements than physically available
+ \item The problem of having more RAM required than is available. Allows programs to run even when they are only partial in memory.
+ \item Embedded Systems, as the RAM requirements there are often small. E.g. for a washing machine or sensor nodes.
+ \item When accessing another processes memory space.
+ \item not when using paging and only the parts that are used (i.e. no unused memory).
+\end{enumerate}
+
+\section*{Exercise 2}
+\begin{enumerate}
+    \item The $\mathcal{O}(1)$ scheduler organizes its runqueue using two arrays: "`active"' and "`expired"'. Each one contains 140 doubly linked list heads containing tasks with different priority. \\
+    To \textbf{select}, it picks task from the highest priority queue in the active array. \\
+    
+    If task's time slice expires, it's \textbf{removed and inserted} into the expired list (probably in lower priority queue). \\
+    On IO block and IO event occurs s.t. task can resume, it's placed in the same queue in the active array and its time slice is reduced to indicate the previous CPU usage. \\
+    When slice is exhausted, task is \textbf{removed and inserted} into expired array. When no more tasks in active array, active and expired array pointers are exchanged. This prevents starvation. Different priorities are assigned different time slices. Further system keeps heuristic called dynamic priority which penalizes CPU-hogging and reward interactivity.
+    \item The tasks that executed previously on a CPU gets executed on the same CPU  with a higher probability thus possibly avoiding cache misses. Load balancing is performed to keep the payload on all processors up and fairly the same.
+    \item In order to avoid using different queues for different priorities. Instead the vruntime is incremented in different steps depending on the priority and the red-black tree is sorted according to this.
+\end{enumerate}
+
+\section*{Exercise 3}
+\begin{enumerate}
+ \item see str\_rev.c
+\end{enumerate}
+
+\section*{Exercise 4}
+\begin{enumerate}
+ \item see xor\_swap.c
+ \item Let $a,\ b$ variables with binary base. Let $t = a \text{ XOR } b$. Thus $t$ is $0$ at place $i$ if $a_i = b_i$ and 1 otherwise. \\
+ \[ t \text{ XOR } a = b \]
+ \[ t \text{ XOR } b = a \]
+ is to be proven. Starting with the first conjecture.
+ \[ t \text{ XOR } a = a \text{ XOR } b \text{ XOR } a \]
+ Using that XOR is associative, commutative and self-inverse, we get:
+ \[ a \text{ XOR } a \text{ XOR } b  = 0 \text{ XOR } b = b \]
+ Similarly for the second one.
+\end{enumerate}
+
+
+\section*{Exercise 5}
+\begin{enumerate}
+ \item \[ 2 \cdot \frac{4 \text{ ns}}{32 \text{ bit}} = 2 \frac{\text{ns}}{\text{bytes}} \]
+ \[ 4 \text{ GiB} \cdot 2 \frac{\text{ns}}{\text{bytes}} = 2^{32} \text{ bytes} \cdot 2 \cdot 10^{-9}  \frac{\text{s}}{\text{bytes}} \]
+ \[ 2^33 \cdot 10^{-9} \text{ s} = 8.589934592 \text{ s} \]
+ \item 
+ \begin{itemize}
+  \item First Fit: $12 \text{ MB} \mapsto 20 \text{ MB}$, $10 \text{ MB} \mapsto 10 \text{ MB}$, $9 \text{ MB} \mapsto 18 \text{ MB}$ 
+  \item Next Fit: $12 \text{ MB} \mapsto 20 \text{ MB}$, $10 \text{ MB} \mapsto 18 \text{ MB}$, $9 \text{ MB} \mapsto 11 \text{ MB}$ 
+  \item Best Fit: $12 \text{ MB} \mapsto 12 \text{ MB}$, $10 \text{ MB} \mapsto 10 \text{ MB}$, $9 \text{ MB} \mapsto 11 \text{ MB}$ 
+  \item Worst Fit: $12 \text{ MB} \mapsto 20 \text{ MB}$, $10 \text{ MB} \mapsto 18 \text{ MB}$, $9 \text{ MB} \mapsto 15 \text{ MB}$ 
+ \end{itemize}
+
+\end{enumerate}
+
+\section*{Exercise 6}
+\begin{itemize}
+ \item see wl\_hist.c
+\end{itemize}
+
+\end{document}
