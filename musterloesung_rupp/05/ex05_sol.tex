@@ -1,0 +1,77 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{minted}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section*{Exercise 1}
+\begin{enumerate}
+ \item Programs may have virtual address spaces larger than the available memory capacity. Paging splits the virtual address space into chunks and loads them in the available slots called frames in RAM. Thus a program actually to large for memory can still execute due to paging.
+ \item Paging splits the virtual address space into smaller chunks and loads them as needed. swapping stores currently inactive processes e.g. minimized GUIs to disk to make space for other processes. Paging deals with loading parts of processes address space while swapping deals with loading and storing processes.
+ \item Overlays split programs into little pieces and loading them as needed using an overlay manager. Using overlays, the programmer had to define the split and take care of loading the right overlay at the right point in time. With paging all the splitting and loading work is outsourced from the program to the operating system including loading mechanisms.
+ \item A page is a piece of a program, thus virtual memory. A page frame is a chunk of RAM and thus corresponds to a sequence of addresses in physical memory.
+ \item They can have different sizes, but should have the same size to avoid fragmentation. The size of a page defines the size of one piece of the program, while the same is for the chunk of RAM and the page frame. 
+ \item In order to match up with addresses (addressing is done in binary format) and address translation (which is done by the MMU) and to allow for intelligent splits (e.g. the buddy algorithm). In particular, bit masks are used by the MMU to split between page number and offset which would not be so fast and easy when using a non-binary system (or at least some system that is easily decomposable into binary e.g. octal or heaxdecimal).
+ \item A page table stores the mapping between virtual pages and physical frames. It is integral to address translation: Page frame address + offset = physical address
+ \item A page fault is what happens when a page is looked up in a page table and the absent bit is set (no page frame is stored for this page). On encountering a page fault, the operating system loads the page into a frame and updates the page table entry.
+ \item When data structures of dynamic size grow and shrink, it may be that some run out of allocated space while others have plenty of unused allocated memory. To avoid this, segmentation can be used to introcuce independent address spaces so called segements that are automatically allocated in pages to fit and may be redistributed to avoid external fragmentation
+ \item Yes, e.g. Intel x86 and MULTICS proposed this
+\end{enumerate}
+
+\section*{Exercise 2}
+    Resident: Page 0 (code). Array uses $\frac{64^2}{128}$ Pages $= \frac{(32 \cdot 2) \cdot 64}{128} = \frac{128 \cdot 32}{128} = 32$ Pages.
+\begin{enumerate}
+    \item Fragment A: \\
+    As the inner loop iterates over the rows, each second access leads to a page fault as only two elements of a page are accessed before the next page is needed to answer the queried element. This leads overall to $\frac{64^2}{2} = \frac{2 \cdot 32 \cdot 64}{2} = 64 \cdot 32 = 2^6 \cdot 2^5 = 2^{11} = 2048$ page faults.
+    
+    
+    \item Fragment B: \\
+    As the outer loop iterates over $i$ here and the inner over $j$, the accesses are sequential in memory. This means that two rows $X[i][]$ and $X[i + 1][]$ are accessed without page fault. This means that overall $32$ page faults occur.
+\end{enumerate}
+
+\section*{Exercise 3}
+\begin{tabular}{c  p{6cm}} \hline
+Expression & Description \\ \hline
+\mintinline{c}{v} & value of variable \mintinline{c}{v} \\
+\mintinline{c}{&v} & address of variable \mintinline{c}{v} \\
+\mintinline{c}{*p} & value at address stored by \mintinline{c}{p} \\
+\mintinline{c}{a[2]} & value of third element of the array. Also value of the address \mintinline{c}{a + 2 * sizeof(*a)} \\
+\mintinline{c}{**p} & value at address stored by value at address stored by \mintinline{c}{p} \\
+\end{tabular}
+
+
+\section*{Exercise 4}
+\begin{enumerate}
+ \item $5555_10 = 1010110110011_2$. \\
+ Page ID = $(1110000000000_2 \& 1010110110011_2) >> 10 = 101_2 = 5$ \\
+ Offset = $0001111111111_2 \& 1010110110011_2  = 0110110011_2$ \\
+ Page ID 5 is in Page frame 0. \\
+ $\rightarrow$ Physical address $= 000 0110110011_2$
+ 
+ \item $4100_10 = 1000000000100_2$. \\
+ Page ID = $(1110000000000_2 \& 1000000000100_2) >> 10 = 100_2 = 4$ \\
+ Offset = $0001111111111_2 \& 1000000000100_2  = 0000000100_2$ \\
+ Page ID 4 is not present $\Rightarrow$ Page fault. 
+ 
+  \item $2048_10 = 0100000000000_2$. \\
+ Page ID = $(1110000000000_2 \& 0100000000000_2) >> 10 = 010_2 = 2$ \\
+ Offset = $0001111111111_2 \& 0100000000000_2  = 0000000000_2$ \\
+ Page ID 2 is in Page frame 3. \\
+ $\rightarrow$ Physical address $= 011 0000000000_2$
+ 
+  \item $2047_10 = 0011111111111_2$. \\
+ Page ID = $(1110000000000_2 \& 0011111111111_2) >> 10 = 001_2 = 1$ \\
+ Offset = $0001111111111_2 \& 0011111111111_2  = 1111111111_2$ \\
+ Page ID 1 is in Page frame 7. \\
+ $\rightarrow$ Physical address $= 111 1111111111_2$
+ \end{enumerate}
+
+
+\section*{Exercise 5}
+\begin{enumerate}
+ \item siehe address\_translation.c
+
+\end{enumerate}
+
+
+\end{document}

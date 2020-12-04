@@ -21,7 +21,7 @@ int main () {
         x += horizontal_step;
     }
 
-    for (int i = HEIGHT - 1; i > -1; i--) {
+    for (int i = 0; i < HEIGHT; i++) {
         printf("%.*s\n", (int) WIDTH, grid[i]);    
     }
     return 0;
