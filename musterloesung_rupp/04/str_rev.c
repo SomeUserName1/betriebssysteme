@@ -5,11 +5,8 @@ void string_reverse_inplace(char* str);
 
 int main(void) {
     char test[] = "Hello World";
-
     string_reverse_inplace(test);
-
     printf("%s", test);
-
     return 0;
 }
 
